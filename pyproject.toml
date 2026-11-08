@@ -1,0 +1,42 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "nature-visual-features"
+version = "0.1.0"
+description = "Fractal, spectral, semantic and colour features of natural visual patterns in images and video frames"
+readme = "README.md"
+requires-python = ">=3.11"
+license = "MIT"
+dependencies = [
+    "numpy>=1.24",
+    "scipy>=1.10",
+    "scikit-image>=0.22",
+    "opencv-python-headless>=4.8",
+    "pandas>=2.0",
+]
+
+[project.optional-dependencies]
+semantic = ["torch>=2.1", "torchvision>=0.16", "transformers>=4.38", "pillow>=10"]
+demo = ["matplotlib>=3.7"]
+dev = ["pytest>=7.4", "ruff>=0.4", "matplotlib>=3.7"]
+
+[project.scripts]
+nvf = "nvf.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+nvf = ["data/*.csv"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B", "UP"]
