@@ -1,0 +1,15 @@
+feature,mean,sd,n_frames
+fd_otsu,1.8820,0.0638,15
+fd_otsu_r2,0.9998,0.0001,15
+fd_boundary,1.2737,0.1253,15
+fd_boundary_r2,0.9941,0.0071,15
+fd_edges,1.2568,0.1361,15
+fd_edges_r2,0.9940,0.0049,15
+spec_alpha,1.1976,0.3258,15
+spec_r2,0.9281,0.0900,15
+hue_entropy,1.1900,0.7869,15
+hue_entropy_norm,0.2302,0.1522,15
+hue_valid_fraction,0.3301,0.2005,15
+mean_saturation,0.2356,0.1049,15
+mean_value,0.7295,0.0860,15
+colourfulness,30.5003,12.9237,15
