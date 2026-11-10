@@ -1,9 +1,7 @@
 # nature-visual-features
 
-Quantitative, descriptive features of natural visual patterns in images and
-video frames: **fractal** (box-counting dimension), **spectral** (Fourier
-amplitude-spectrum slope), **semantic** (scene composition from SegFormer /
-ADE20K) and **colour** (hue entropy, saturation, colourfulness).
+A Python package for extracting fractal, spectral, semantic, and colour features
+from images and video frames for environmental perception research.
 
 `nvf` is a small Python package with a command-line tool, tests on synthetic
 images with known answers, and a reproducible demo. Version 0.1.
@@ -28,11 +26,9 @@ influential framework. Separately, work on *natural image statistics* and
 * Urban greenery research uses the share of vegetation visible in street-level
   images, the "green view" (Yang et al., 2009).
 
-This package computes such features in a transparent, validated way, so they
-can serve as descriptors of window views, facades, virtual environments or
-first-person video in environment-and-health studies. **The features are
-descriptive. They are not measures of restoration, preference or wellbeing**;
-any such link has to be tested in a study design.
+These image-based features can be used to characterise window views, building
+facades, virtual environments and first-person video. They do not directly
+measure psychological restoration or well-being.
 
 ## Install
 
@@ -101,12 +97,6 @@ log A = −α · log f + c by OLS over **8 ≤ f ≤ N/4 cycles/image**. The low
 bound avoids the frequencies most affected by the window, and the upper bound
 avoids aliasing, noise and compression artefacts. Outputs: `spec_alpha`,
 `spec_r2`, and the fit range.
-
-The deviation-from-natural-spectrum index used in the visual-discomfort
-literature (Penacchio & Wilkins, 2015) is **not** included. I could not check
-its exact definition (fit, weighting) against the original paper in this
-release, and an approximate re-implementation under that name would be
-misleading.
 
 ### Colour (`nvf.colour`)
 
@@ -300,11 +290,10 @@ How to read this:
   facades.** Three of the five come from one photographer's series
   ("Freopedia"), two of them of the same building, all under a deep-blue
   sky. Two window views show the same temple.
-* **These are not representative samples of the categories.** They are
-  whatever a keyword search returned: one "water" photo is an aerial view
-  of high-rise towers on a lakefront, another a satellite image of Lake
-  MacKay. The numbers show that the pipeline runs on real photographs and
-  what it returns; they are not evidence about the categories.
+
+The demonstration uses 30 keyword-selected Wikimedia Commons photographs, five
+per category. Category summaries describe this image set rather than general
+differences between landscape categories.
 
 **Segmentation check.** `python scripts/segmentation_overlays.py` writes the
 SegFormer group labels over every photograph (`data/overlays/`, git-ignored).
@@ -397,8 +386,6 @@ it reports no skipped files.
   * aerial and close-up images fail.
 
   Check overlays before using these features on a new kind of image.
-* **The features are descriptive.** They are not validated measures of
-  restoration, preference, stress or thermal perception.
 
 ## Repository layout
 
@@ -419,7 +406,6 @@ examples/          ATTRIBUTION.csv for downloaded example images (images themsel
 * Hasler, D., & Süsstrunk, S. (2003). Measuring colorfulness in natural images. *Proc. SPIE 5007, Human Vision and Electronic Imaging VIII*, 87–95. https://doi.org/10.1117/12.477378
 * Kaplan, S. (1995). The restorative benefits of nature: Toward an integrative framework. *Journal of Environmental Psychology*, 15(3), 169–182. https://doi.org/10.1016/0272-4944(95)90001-2
 * Otsu, N. (1979). A threshold selection method from gray-level histograms. *IEEE Transactions on Systems, Man, and Cybernetics*, 9(1), 62–66. https://doi.org/10.1109/TSMC.1979.4310076
-* Penacchio, O., & Wilkins, A. J. (2015). Visual discomfort and the spatial distribution of Fourier energy. *Vision Research*, 108, 1–7. https://doi.org/10.1016/j.visres.2014.12.013 (cited only to explain an omission)
 * Prusinkiewicz, P., & Lindenmayer, A. (1990). *The Algorithmic Beauty of Plants*. Springer.
 * Spehar, B., Clifford, C. W. G., Newell, B. R., & Taylor, R. P. (2003). Universal aesthetic of fractals. *Computers & Graphics*, 27(5), 813–820. https://doi.org/10.1016/S0097-8493(03)00154-7
 * Taylor, R. P. (2006). Reduction of physiological stress using fractal art and architecture. *Leonardo*, 39(3), 245–251. https://doi.org/10.1162/leon.2006.39.3.245
